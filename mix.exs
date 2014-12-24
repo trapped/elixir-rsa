@@ -1,30 +1,17 @@
-defmodule Rsa.Mixfile do
+defmodule RSA.Mixfile do
   use Mix.Project
 
   def project do
     [app: :rsa,
      version: "0.0.1",
      elixir: "~> 1.0",
-     deps: deps]
+     package: package,
+     description: "Erlang public_key cryptography wrapper"]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type `mix help compile.app` for more information
-  def application do
-    [applications: [:logger]]
-  end
-
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type `mix help deps` for more examples and options
-  defp deps do
-    []
+  defp package do
+    [contributors: ["trapped"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/trapped/elixir-rsa"}]
   end
 end
