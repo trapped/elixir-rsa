@@ -5,7 +5,7 @@ defmodule RSA.Mixfile do
     [app: :rsa,
      version: "0.0.1",
      elixir: "~> 1.0",
-     package: package,
+     package: package(),
      description: "Erlang public_key cryptography wrapper"]
   end
 

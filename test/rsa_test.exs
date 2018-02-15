@@ -8,7 +8,7 @@ FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/
 -----END PUBLIC KEY-----"
 
     @test_public_key_decoded {:RSAPublicKey, 119445732379544598056145200053932732877863846799652384989588303737527328743970559883211146487286317168142202446955508902936035124709397221178664495721428029984726868375359168203283442617134197706515425366188396513684446494070223079865755643116690165578452542158755074958452695530623055205290232290667934914919, 65537}
-    
+
     @test_private_key "-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUp
 wmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/3j+skZ6UtW+5u09lHNsj6tQ5
@@ -43,15 +43,15 @@ U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
 
     test "RSA.encrypt/decrypt (public/private)" do
         plaintext = "hello world"
-        cyphertext = plaintext |> RSA.encrypt {:public, @test_public_key_decoded}
-        new_plaintext = cyphertext |> RSA.decrypt {:private, @test_private_key_decoded}
+        cyphertext = plaintext |> RSA.encrypt({:public, @test_public_key_decoded})
+        new_plaintext = cyphertext |> RSA.decrypt({:private, @test_private_key_decoded})
         assert new_plaintext == plaintext
     end
 
     test "RSA.encrypt/decrypt (private/public)" do
         plaintext = "hello world"
-        cyphertext = plaintext |> RSA.encrypt {:private, @test_private_key_decoded}
-        new_plaintext = cyphertext |> RSA.decrypt {:public, @test_public_key_decoded}
+        cyphertext = plaintext |> RSA.encrypt({:private, @test_private_key_decoded})
+        new_plaintext = cyphertext |> RSA.decrypt({:public, @test_public_key_decoded})
         assert new_plaintext == plaintext
     end
 end
